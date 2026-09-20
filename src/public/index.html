@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão de Funcionários</title>
+
+  <!-- Fonte Inter e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Efeitos de luz ao fundo -->
+  <div class="bg-blur blur-1"></div>
+  <div class="bg-blur blur-2"></div>
+
+  <main class="app-container">
+
+    <!-- Cabeçalho -->
+    <header class="app-header">
+      <div class="logo-area">
+        <i class="fa-solid fa-users-gear"></i>
+        <h1>Gestão de Funcionários</h1>
+      </div>
+      <p class="subtitle">Painel de Controle Administrativo</p>
+    </header>
+
+    <!-- Formulário de Cadastro e Edição -->
+    <section class="card form-card">
+      <div class="card-header">
+        <h2><i class="fa-solid fa-user-plus"></i> Cadastrar / Atualizar Funcionário</h2>
+      </div>
+
+      <form id="employee-form">
+        <!-- Input oculta para guardar o ID no Update -->
+        <input type="hidden" id="employee-id" />
+
+        <div class="form-grid">
+          <div class="input-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required autocomplete="off" />
+          </div>
+
+          <div class="input-group">
+            <label for="cargo">Cargo</label>
+            <input type="text" id="cargo" name="cargo" placeholder="Ex: Desenvolvedor" required autocomplete="off"/>
+          </div>
+
+          <div class="input-group">
+            <label for="salario">Salário (R$)</label>
+            <input type="number" id="salario" name="salario" step="0.01" placeholder="0.00" required />
+          </div>
+
+          <div class="button-group">
+            <button type="submit" id="btn-save" class="btn btn-primary">
+              <i class="fa-solid fa-floppy-disk"></i> Salvar
+            </button>
+            <button type="button" id="btn-cancel" class="btn btn-secondary d-none">
+              <i class="fa-solid fa-xmark"></i> Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Seção solicitada com id="tabela-funcionarios" -->
+    <section class="card list-section">
+      <div class="card-header">
+        <h2><i class="fa-solid fa-list"></i> Lista de Funcionários</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Cargo</th>
+              <th>Salário</th>
+              <th class="text-center">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTable">
+            <!-- Dados injetados dinamicamente via script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="app-footer">
+      <p>© 2026 Sistema de Funcionários | Desenvolvido por <strong>Jeyfferson da Silva</strong></p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
